@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Text;
 using FitTracker.Api.Controllers;
-using FitTracker.Core.Unity;
-using FitTracker.Data;
 using FitTracker.Data.Entities.Xamarian;
-using FitTracker.Data.Repo.Xamarian;
 using Foundation;
 using HealthKit;
 using UIKit;
@@ -71,15 +70,19 @@ namespace Fit
             base.ViewDidLoad();
 
             Send.TouchUpInside += delegate
-            {              
-                string s = heightValueLabel.Text;
-                var data = new XamarianData();
-                data.Height = heightValueLabel.Text;
-                //data.Test = 12.34m;
-                //data.UserName = "test";
-                //data.Weight = 46.45m;
-                FitTrackerController2 cont = new FitTrackerController2();
-                cont.SaveXamarian(data);
+            {
+                var host = "http://localhost:46017/";
+
+                var request =
+                    (HttpWebRequest)
+                        WebRequest.Create(String.Format(@"{0}/fitTracker/setData?weight={1}&height={2}", host,
+                            weightValueLabel.Text, heightValueLabel.Text));
+
+                var data = Encoding.ASCII.GetBytes("");
+
+                request.Method = "GET";
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentLength = data.Length;
             };
         }
 
