@@ -71,19 +71,41 @@ namespace Fit
 
             Send.TouchUpInside += delegate
             {
+                SendBodyMeasurement();
+            };
+        }
+
+        void SendBodyMeasurement()
+        {
+            var leanBodyMassType = HKQuantityType.GetQuantityType(HKQuantityTypeIdentifierKey.LeanBodyMass);
+
+            FetchMostRecentData(leanBodyMassType, (mostRecentQuantity, error) =>
+            {
+                if (error != null)
+                {
+                    Console.WriteLine("An error occured fetching the user's height information. " +
+                    "In your app, try to handle this gracefully. The error was: {0}.", error.LocalizedDescription);
+                    return;
+                }
                 var host = "http://localhost:46017/";
 
                 var request =
                     (HttpWebRequest)
-                        WebRequest.Create(String.Format(@"{0}/fitTracker/setData?weight={1}&height={2}", host,
-                            weightValueLabel.Text, heightValueLabel.Text));
+                        WebRequest.Create(
+                            String.Format(
+                                @"{0}/fitTracker/HealhKitBodyMeasurement?userId=1&measurement={1}&type={2}&timestamp={3}&source={4}",
+                                host,
+                                weightValueLabel.Text, heightValueLabel.Text));
 
                 var data = Encoding.ASCII.GetBytes("");
 
                 request.Method = "GET";
                 request.ContentType = "application/x-www-form-urlencoded";
                 request.ContentLength = data.Length;
-            };
+                
+            });
+
+            
         }
 
 		void UpdateUsersAge ()
@@ -113,7 +135,7 @@ namespace Fit
 		void UpdateUsersHeight ()
 		{
 			var heightType = HKQuantityType.GetQuantityType (HKQuantityTypeIdentifierKey.Height);
-
+            
 			FetchMostRecentData (heightType, (mostRecentQuantity, error) => {
 				if (error != null) {
 					Console.WriteLine ("An error occured fetching the user's height information. " +
