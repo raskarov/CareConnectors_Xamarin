@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Fit</string>
+	<string>FitFromHealthTestApp</string>
 	<key>CFBundleIdentifier</key>
 	<string>Sobits</string>
 	<key>CFBundleShortVersionString</key>

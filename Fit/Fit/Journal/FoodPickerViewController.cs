@@ -47,7 +47,6 @@ namespace Fit
 				FoodItem.Create ("Chips", 190000.0),
 				FoodItem.Create ("Chicken Taco", 170000.0)
 			});
-
 		}
 
 		public override nint RowsInSection (UITableView tableview, nint section)
