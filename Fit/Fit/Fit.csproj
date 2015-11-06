@@ -25,6 +25,13 @@
     <MtouchI18n>
     </MtouchI18n>
     <MtouchArch>i386</MtouchArch>
+    <CodesignKey>iPhone Developer: Denis Demidov (394W84WXMF)</CodesignKey>
+    <CodesignProvision>
+    </CodesignProvision>
+    <CodesignResourceRules />
+    <CodesignExtraArgs />
+    <BuildIpa>True</BuildIpa>
+    <IpaIncludeArtwork>False</IpaIncludeArtwork>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -50,13 +57,14 @@
     <ConsolePause>false</ConsolePause>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>iPhone Developer: dmitrij-rybalkin@yandex.ru (4U25KVG7M7)</CodesignKey>
+    <CodesignKey>iPhone Developer: Denis Demidov (394W84WXMF)</CodesignKey>
     <MtouchI18n>
     </MtouchI18n>
     <MtouchArch>ARMv7</MtouchArch>
     <BuildIpa>True</BuildIpa>
     <IpaIncludeArtwork>False</IpaIncludeArtwork>
-    <CodesignProvision>c78af42b-0312-4945-bcd8-dcf98cfa159a</CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
     <CodesignResourceRules />
     <CodesignExtraArgs />
   </PropertyGroup>
@@ -82,8 +90,8 @@
     <ConsolePause>false</ConsolePause>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>True</BuildIpa>
-    <CodesignProvision>c78af42b-0312-4945-bcd8-dcf98cfa159a</CodesignProvision>
-    <CodesignKey>iPhone Developer: dmitrij-rybalkin@yandex.ru (4U25KVG7M7)</CodesignKey>
+    <CodesignProvision>c9bb42fe-56c2-42f7-99f1-2dcdd2ccd173</CodesignProvision>
+    <CodesignKey>iPhone Developer: Denis Demidov (394W84WXMF)</CodesignKey>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <IpaIncludeArtwork>False</IpaIncludeArtwork>
     <CodesignResourceRules />
@@ -95,11 +103,14 @@
     <OutputPath>bin\iPhone\AppStore</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Developer: Denis Demidov (394W84WXMF)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <ConsolePause>false</ConsolePause>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignResourceRules />
+    <CodesignExtraArgs />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
